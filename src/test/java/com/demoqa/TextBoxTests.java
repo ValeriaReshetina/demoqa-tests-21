@@ -8,7 +8,6 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -59,8 +58,7 @@ public class TextBoxTests {
         $x("//div[@id='subjectsContainer']//input").shouldBe(Condition.interactable).click();
         $x("//div[@id='subjectsContainer']//input").setValue("Arts").pressEnter();
         $x("//*[@id='hobbiesWrapper']//*[contains(text(),'Reading')]").click();
-        File file = new File("C:/QA-Guru/demoqa-tests-21/src/test/resources/photoForTest.jpg");
-        $x("//input[@id='uploadPicture']").uploadFile(file);
+        $("#uploadPicture").uploadFromClasspath("photoForTest.jpg");
         $x("//*[@id='currentAddress']").setValue("Saint Petersburg");
         $x("//*[contains(text(), 'Select State')]").shouldBe(Condition.interactable)
                 .scrollTo().click();
