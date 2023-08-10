@@ -1,14 +1,16 @@
 package com.demoqa.tests;
 
-import com.demoqa.components.ChecksComponent;
+import com.demoqa.checks.RegistrationPageChecks;
+import com.demoqa.components.CalendarComponent;
 import com.demoqa.pages.RegistrationPage;
 import jdk.jfr.Description;
 import org.junit.jupiter.api.Test;
 
-public class RegistrationTestsWithPageObjectApproach extends TestBase {
+public class RegistrationTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
-    ChecksComponent checksComponent = new ChecksComponent();
+    RegistrationPageChecks registrationChecks = new RegistrationPageChecks();
+    CalendarComponent calendarComponent = new CalendarComponent();
 
     @Description("Registration test with page object approach as a homework for lesson #7")
     @Test
@@ -19,9 +21,11 @@ public class RegistrationTestsWithPageObjectApproach extends TestBase {
                 .setLastName("Reshetina")
                 .setUserEmail("valeria@yandex.ru")
                 .setGender("Female")
-                .setUserMobileNumber("9881120310")
-                .setBirthDate("12", "August", "1996")
-                .setSubjects("Arts")
+                .setUserMobileNumber("9881120310");
+
+        calendarComponent.setBirthDate("12", "August", "1996");
+
+        registrationPage.setSubjects("Arts")
                 .setHobbies("Reading")
                 .setAddress("Saint Petersburg")
                 .uploadFile("photoForTest.jpg")
@@ -29,7 +33,7 @@ public class RegistrationTestsWithPageObjectApproach extends TestBase {
                 .selectCity("Delhi")
                 .submitInformation();
 
-        checksComponent.checkNameResult("Valeria Reshetina").checkEmailResult("valeria@yandex.ru")
+        registrationChecks.checkNameResult("Valeria Reshetina").checkEmailResult("valeria@yandex.ru")
                 .checkGenderResult("Female").checkMobileNumberResult("9881120310")
                 .checkBirthDateResult("12 August,1996").checkSubjectResult("Arts")
                 .checkHobbyResult("Reading").checkFileNameResult("photoForTest.jpg")

@@ -1,9 +1,61 @@
-package com.demoqa.components;
+package com.demoqa.checks;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$x;
 
-public class TableChecksComponent {
+public class RegistrationPageChecks {
+
+    public RegistrationPageChecks checkNameResult(String name) {
+        compareNameInTableResult(name);
+        return this;
+    }
+
+    public RegistrationPageChecks checkEmailResult(String email) {
+        compareEmailInTableResult(email);
+        return this;
+    }
+
+    public RegistrationPageChecks checkGenderResult(String gender) {
+        compareGenderInTableResult(gender);
+        return this;
+    }
+
+    public RegistrationPageChecks checkMobileNumberResult(String phone) {
+        comparePhoneInTableResult(phone);
+        return this;
+    }
+
+    public RegistrationPageChecks checkBirthDateResult(String birthDate) {
+        compareBirthDateInTableResult(birthDate);
+        return this;
+    }
+
+    public RegistrationPageChecks checkSubjectResult(String subject) {
+        compareSubjectInTableResult(subject);
+        return this;
+    }
+
+    public RegistrationPageChecks checkHobbyResult(String hobby) {
+        compareHobbyInTableResult(hobby);
+        return this;
+    }
+
+    public RegistrationPageChecks checkFileNameResult(String fileName) {
+        compareFileNameInTableResult(fileName);
+        return this;
+    }
+
+    public RegistrationPageChecks checkAddressResult(String address) {
+        compareAddressInTableResult(address);
+        return this;
+    }
+
+    public RegistrationPageChecks checkStateCityResult(String stateCity) {
+        compareStateCityInTableResult(stateCity);
+        return this;
+    }
+
+    //CHECKS FOR THE TABLE THAT APPEARS AFTER CLICKING SUBMIT BUTTON
 
     public void compareNameInTableResult(String name) {
         $x("//td[contains(text(), 'Student Name')]/following-sibling::td[1]").shouldHave(text(name));

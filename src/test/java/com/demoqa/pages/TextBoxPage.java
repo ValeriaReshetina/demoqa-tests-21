@@ -2,11 +2,10 @@ package com.demoqa.pages;
 
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 public class TextBoxPage {
-    SelenideElement
+    public SelenideElement
             userName = $x("//*[@id='userName']"),
             userEmail = $x("//*[@id='userEmail']"),
             userCurrentAddress = $x("//*[@id='currentAddress']"),
@@ -44,26 +43,6 @@ public class TextBoxPage {
 
     public TextBoxPage submitInformation() {
         submitButton.click();
-        return this;
-    }
-
-    public TextBoxPage checkNameOutput(String name) {
-        nameOutput.shouldHave(text(name));
-        return this;
-    }
-
-    public TextBoxPage checkEmailOutput(String email) {
-        emailOutput.shouldHave(text(email));
-        return this;
-    }
-
-    public TextBoxPage checkCurrentAddressOutput(String currentAddress) {
-        currentAddressOutput.shouldHave(text(currentAddress));
-        return this;
-    }
-
-    public TextBoxPage checkPermanentAddressOutput(String permanentAddress) {
-        permanentAddressOutput.shouldHave(text(permanentAddress));
         return this;
     }
 }
