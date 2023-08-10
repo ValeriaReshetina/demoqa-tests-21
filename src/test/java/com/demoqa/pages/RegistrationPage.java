@@ -1,22 +1,19 @@
 package com.demoqa.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import com.demoqa.components.CalendarComponent;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
-    CalendarComponent calendar = new CalendarComponent();
 
-    SelenideElement
+    private SelenideElement
             firstNameInput = $x("//*[@id='firstName']"),
             lastNameInput = $x("//*[@id='lastName']"),
             userEmailInput = $x("//*[@id='userEmail']"),
             genderWrapper = $x("//*[@id='genterWrapper']"),
             userMobileNumber = $x("//*[@id='userNumber']"),
-            birthDate = $x("//*[@id='dateOfBirthInput']"),
             subjectsInput = $x("//div[@id='subjectsContainer']//input"),
             hobbiesInput = $x("//*[@id='hobbiesWrapper']"),
             addressInput = $x("//*[@id='currentAddress']"),
@@ -63,12 +60,6 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setBirthDate(String day, String month, String year) {
-        birthDate.click();
-        calendar.setDate(day, month, year);
-        return this;
-    }
-
     public RegistrationPage setSubjects(String value) {
         subjectsInput.setValue(value).pressEnter();
         return this;
@@ -105,6 +96,4 @@ public class RegistrationPage {
         submitButton.click();
         return this;
     }
-
-
 }
