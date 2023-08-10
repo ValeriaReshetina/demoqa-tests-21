@@ -1,5 +1,6 @@
 package com.demoqa.tests;
 
+import com.demoqa.components.ChecksComponent;
 import com.demoqa.pages.RegistrationPage;
 import jdk.jfr.Description;
 import org.junit.jupiter.api.Test;
@@ -7,6 +8,7 @@ import org.junit.jupiter.api.Test;
 public class RegistrationTestsWithPageObjectApproach extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
+    ChecksComponent checksComponent = new ChecksComponent();
 
     @Description("Registration test with page object approach as a homework for lesson #7")
     @Test
@@ -17,17 +19,20 @@ public class RegistrationTestsWithPageObjectApproach extends TestBase {
                 .setLastName("Reshetina")
                 .setUserEmail("valeria@yandex.ru")
                 .setGender("Female")
-                .setUserNumber("9881120310")
-                .setBirthDate("12","August","1996")
+                .setUserMobileNumber("9881120310")
+                .setBirthDate("12", "August", "1996")
                 .setSubjects("Arts")
                 .setHobbies("Reading")
                 .setAddress("Saint Petersburg")
                 .uploadFile("photoForTest.jpg")
                 .selectState("NCR")
                 .selectCity("Delhi")
-                .submitInformation()
-                .checkResult("Valeria Reshetina","valeria@yandex.ru", "Female", "9881120310",
-                        "12 August,1996", "Arts", "Reading","photoForTest.jpg",
-                        "Saint Petersburg", "NCR Delhi");
+                .submitInformation();
+
+        checksComponent.checkNameResult("Valeria Reshetina").checkEmailResult("valeria@yandex.ru")
+                .checkGenderResult("Female").checkMobileNumberResult("9881120310")
+                .checkBirthDateResult("12 August,1996").checkSubjectResult("Arts")
+                .checkHobbyResult("Reading").checkFileNameResult("photoForTest.jpg")
+                .checkAddressResult("Saint Petersburg").checkStateCityResult("NCR Delhi");
     }
 }

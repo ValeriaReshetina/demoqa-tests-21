@@ -2,7 +2,6 @@ package com.demoqa.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import com.demoqa.components.CalendarComponent;
-import com.demoqa.components.TableChecks;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -10,13 +9,13 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
     CalendarComponent calendar = new CalendarComponent();
-    TableChecks table = new TableChecks();
+
     SelenideElement
             firstNameInput = $x("//*[@id='firstName']"),
             lastNameInput = $x("//*[@id='lastName']"),
             userEmailInput = $x("//*[@id='userEmail']"),
             genderWrapper = $x("//*[@id='genterWrapper']"),
-            userNumber = $x("//*[@id='userNumber']"),
+            userMobileNumber = $x("//*[@id='userNumber']"),
             birthDate = $x("//*[@id='dateOfBirthInput']"),
             subjectsInput = $x("//div[@id='subjectsContainer']//input"),
             hobbiesInput = $x("//*[@id='hobbiesWrapper']"),
@@ -26,7 +25,6 @@ public class RegistrationPage {
             cityInput = $x("//div[@id='city']"),
             stateCityInput = $x("//div[@id='stateCity-wrapper']"),
             submitButton = $x("//*[@id='submit']");
-
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
@@ -60,8 +58,8 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setUserNumber(String value) {
-        userNumber.setValue(value);
+    public RegistrationPage setUserMobileNumber(String value) {
+        userMobileNumber.setValue(value);
         return this;
     }
 
@@ -108,9 +106,5 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage checkResult(String name, String email, String gender, String phone, String birthDate, String subject,
-                                        String hobby, String fileName, String address, String stateCity) {
-        table.compareTableResult(name, email, gender, phone, birthDate, subject, hobby, fileName, address, stateCity);
-        return this;
-    }
+
 }

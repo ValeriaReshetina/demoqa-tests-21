@@ -18,33 +18,51 @@ public class TextBoxPage {
             permanentAddressOutput = $x("//div[@id='output']//*[@id='permanentAddress']");
 
     public TextBoxPage openPage() {
-        open("https://demoqa.com/text-box");
+        open("/text-box");
         return this;
     }
+
     public TextBoxPage setUserName(String value) {
         userName.setValue(value);
         return this;
     }
+
     public TextBoxPage setEmail(String value) {
         userEmail.setValue(value);
         return this;
     }
+
     public TextBoxPage setCurrentAddress(String value) {
         userCurrentAddress.setValue(value);
         return this;
     }
+
     public TextBoxPage setPermanentAddress(String value) {
         userPermanentAddress.setValue(value);
         return this;
     }
+
     public TextBoxPage submitInformation() {
         submitButton.click();
         return this;
     }
-    public TextBoxPage checkResult(String name, String email, String currentAddress, String permanentAddress) {
+
+    public TextBoxPage checkNameOutput(String name) {
         nameOutput.shouldHave(text(name));
+        return this;
+    }
+
+    public TextBoxPage checkEmailOutput(String email) {
         emailOutput.shouldHave(text(email));
+        return this;
+    }
+
+    public TextBoxPage checkCurrentAddressOutput(String currentAddress) {
         currentAddressOutput.shouldHave(text(currentAddress));
+        return this;
+    }
+
+    public TextBoxPage checkPermanentAddressOutput(String permanentAddress) {
         permanentAddressOutput.shouldHave(text(permanentAddress));
         return this;
     }
