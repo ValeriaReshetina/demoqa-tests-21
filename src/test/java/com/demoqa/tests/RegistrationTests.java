@@ -33,10 +33,16 @@ public class RegistrationTests extends TestBase {
                 .selectCity("Delhi")
                 .submitInformation();
 
-        registrationChecks.checkNameResult("Valeria Reshetina").checkEmailResult("valeria@yandex.ru")
-                .checkGenderResult("Female").checkMobileNumberResult("9881120310")
-                .checkBirthDateResult("12 August,1996").checkSubjectResult("Arts")
-                .checkHobbyResult("Reading").checkFileNameResult("photoForTest.jpg")
-                .checkAddressResult("Saint Petersburg").checkStateCityResult("NCR Delhi");
+        registrationChecks
+                .checkResult("Student Name", "Valeria Reshetina")
+                .checkResult("Student Email", "valeria@yandex.ru")
+                .checkResult("Gender", "Female")
+                .checkResult("Mobile", "9881120310")
+                .checkResult("Date of Birth", "12 August,1996")
+                .checkResult("Subjects", "Arts")
+                .checkResult("Hobbies", "Reading")
+                .checkResult("Picture", "photoForTest.jpg")
+                .checkResult("Address", "Saint Petersburg")
+                .checkResult("State and City", "NCR Delhi");
     }
 }
