@@ -5,7 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.*;
 
 public class TextBoxPage {
-    public SelenideElement
+    private SelenideElement
             userName = $x("//*[@id='userName']"),
             userEmail = $x("//*[@id='userEmail']"),
             userCurrentAddress = $x("//*[@id='currentAddress']"),
@@ -44,5 +44,21 @@ public class TextBoxPage {
     public TextBoxPage submitInformation() {
         submitButton.click();
         return this;
+    }
+
+    public SelenideElement getNameOutput() {
+        return nameOutput;
+    }
+
+    public SelenideElement getEmailOutput() {
+        return emailOutput;
+    }
+
+    public SelenideElement getCurrentAddressOutput() {
+        return currentAddressOutput;
+    }
+
+    public SelenideElement getPermanentAddressOutput() {
+        return permanentAddressOutput;
     }
 }

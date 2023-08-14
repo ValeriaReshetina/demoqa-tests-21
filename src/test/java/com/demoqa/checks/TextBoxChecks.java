@@ -8,22 +8,22 @@ public class TextBoxChecks {
     TextBoxPage textBoxPage = new TextBoxPage();
 
     public TextBoxChecks checkNameOutput(String name) {
-        textBoxPage.nameOutput.shouldHave(text(name));
+        textBoxPage.getNameOutput().shouldHave(text(name));
         return this;
     }
 
     public TextBoxChecks checkEmailOutput(String email) {
-        textBoxPage.emailOutput.shouldHave(text(email));
+        textBoxPage.getEmailOutput().shouldHave(text(email));
         return this;
     }
 
     public TextBoxChecks checkCurrentAddressOutput(String currentAddress) {
-        textBoxPage.currentAddressOutput.shouldHave(text(currentAddress));
+        textBoxPage.getCurrentAddressOutput().shouldHave(text(currentAddress));
         return this;
     }
 
     public TextBoxChecks checkPermanentAddressOutput(String permanentAddress) {
-        textBoxPage.permanentAddressOutput.shouldHave(text(permanentAddress));
+        textBoxPage.getPermanentAddressOutput().shouldHave(text(permanentAddress));
         return this;
     }
 }

@@ -19,7 +19,8 @@ public class TextBoxTests extends TestBase {
                 .setPermanentAddress("Some permanent address 2")
                 .submitInformation();
 
-        textBoxChecks.checkNameOutput("Valeria Reshetina")
+        textBoxChecks
+                .checkNameOutput("Valeria Reshetina")
                 .checkEmailOutput("valeria@yandex.ru")
                 .checkCurrentAddressOutput("Some current address 1")
                 .checkPermanentAddressOutput("Some permanent address 2");
