@@ -13,6 +13,7 @@ public class Fields {
             userBirthMonth = randomGenerationUtil.getUserBirthMonth(),
             userBirthYear = randomGenerationUtil.getUserBirthYear(),
             userMobileNumber = randomGenerationUtil.getUserMobileNumber(),
+            userPhoto = "photoForTest.jpg",
             userSubject = randomGenerationUtil.getUserSubject(),
             userHobby = randomGenerationUtil.getUserHobby(),
             userAddress = randomGenerationUtil.getUserAddress(),

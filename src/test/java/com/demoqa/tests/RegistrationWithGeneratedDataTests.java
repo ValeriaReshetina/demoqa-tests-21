@@ -5,7 +5,7 @@ import com.demoqa.checks.RegistrationPageChecks;
 import com.demoqa.components.CalendarComponent;
 import com.demoqa.pages.RegistrationPage;
 import com.demoqa.utils.Fields;
-import jdk.jfr.Description;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class RegistrationWithGeneratedDataTests extends TestBase {
@@ -16,7 +16,7 @@ public class RegistrationWithGeneratedDataTests extends TestBase {
     Fields fields = new Fields();
 
 
-    @Description("Registration test with usage of generated data as a homework for lesson #8")
+    @DisplayName("Registration test with usage of generated data as a homework for lesson #8")
     @Test
     void userRegistrationTest() {
         registrationPage.openPage()
@@ -32,7 +32,7 @@ public class RegistrationWithGeneratedDataTests extends TestBase {
         registrationPage.setSubjects(fields.userSubject)
                 .setHobbies(fields.userHobby)
                 .setAddress(fields.userAddress)
-                .uploadFile("photoForTest.jpg")
+                .uploadFile(fields.userPhoto)
                 .selectState(fields.userState)
                 .selectCity(fields.userCity)
                 .submitInformation();
@@ -45,7 +45,7 @@ public class RegistrationWithGeneratedDataTests extends TestBase {
                 .checkResult("Date of Birth", fields.userFullBirthday)
                 .checkResult("Subjects", fields.userSubject)
                 .checkResult("Hobbies", fields.userHobby)
-                .checkResult("Picture", "photoForTest.jpg")
+                .checkResult("Picture", fields.userPhoto)
                 .checkResult("Address", fields.userAddress)
                 .checkResult("State and City", fields.userStateAndCity);
     }
